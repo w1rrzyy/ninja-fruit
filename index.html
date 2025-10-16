@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Slice!</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    
+    <div id="main-menu" class="menu">
+        <h1>FRUIT SLICE!</h1>
+        <h2 id="high-score-display">Рекорд: 0</h2> <button id="start-button">▶ Начать Игру</button>
+        <button id="menu-shop-button">🛒 Магазин</button>
+    </div>
+
+    <div id="ui-container">
+        <div id="life-display">❤️ Жизни: 3</div>
+        <div id="coin-display">💰 Монеты: 0</div>
+        <button id="shop-button">🛒 Магазин</button>
+    </div>
+
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+    <div id="pause-modal" class="modal">
+        <div class="modal-content">
+            <h2>⏸ Игра на паузе</h2>
+            <button id="resume-button">Продолжить игру</button>
+            <button id="menu-from-pause-button">Вернуться в меню</button>
+        </div>
+    </div>
+
+    <div id="shop-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>🛒 Магазин Улучшений</h2>
+            <div id="shop-items"></div>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>

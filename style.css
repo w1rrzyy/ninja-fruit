@@ -1,0 +1,204 @@
+/* --- Глобальные Стили и Фон --- */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Глубокий космический фон */
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    margin: 0;
+    font-family: 'Arial Black', Gadget, sans-serif; 
+    color: #ECF0F1;
+    overflow: hidden; 
+}
+
+/* --- Канвас Игры --- */
+#gameCanvas {
+    /* Футуристическая фиолетовая рамка с тенью */
+    border: 5px solid #8E44AD; 
+    box-shadow: 0 0 20px rgba(142, 68, 173, 0.8);
+    background-color: #000000;
+    cursor: none; /* Скрываем стандартный курсор для эффекта лезвия */
+    transition: box-shadow 0.3s;
+}
+#gameCanvas:hover {
+    box-shadow: 0 0 30px rgba(155, 89, 182, 1);
+}
+
+/* --- Элементы Интерфейса (Счет, Жизни, Магазин) --- */
+#ui-container {
+    display: flex;
+    width: 800px;
+    justify-content: space-between; /* Распределяем элементы по ширине */
+    align-items: center;
+    margin-bottom: 10px;
+    color: #F7DC6F; 
+    text-shadow: 0 0 5px #F4D03F;
+}
+
+#coin-display, #life-display {
+    font-size: 24px; 
+    padding: 10px;
+}
+
+#shop-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #E74C3C; 
+    border: 3px solid #C0392B;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 4px #C0392B;
+    transition: all 0.1s;
+}
+
+#shop-button:active {
+    box-shadow: 0 0 #C0392B;
+    transform: translateY(4px);
+}
+
+/* --- Главное Меню и Экраны Оверлея (Пауза, Магазин) --- */
+.menu {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(18, 18, 18, 1); 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    padding: 0;
+}
+
+.menu h1 {
+    color: #2ECC71; 
+    font-size: 60px;
+    margin-bottom: 5px; 
+    text-shadow: 0 0 15px rgba(46, 204, 113, 0.9);
+}
+
+/* СТИЛЬ ДЛЯ РЕКОРДА */
+#high-score-display {
+    color: #3498DB; 
+    font-size: 30px;
+    margin-bottom: 25px; 
+    text-shadow: 0 0 10px rgba(52, 152, 219, 0.7);
+}
+
+.menu button, #pause-modal button {
+    display: block;
+    width: 280px;
+    padding: 15px 20px;
+    margin: 18px auto;
+    font-size: 22px;
+    cursor: pointer;
+    background-color: #27AE60;
+    border: 3px solid #2ECC71;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 6px #2ECC71;
+    transition: all 0.1s;
+}
+
+.menu button:hover, #pause-modal button:hover {
+    background-color: #2ECC71;
+}
+
+.menu button:active, #pause-modal button:active {
+    box-shadow: 0 0 #2ECC71;
+    transform: translateY(6px);
+}
+
+/* --- Стили Модальных окон (Магазин и Пауза) --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 20; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.85); 
+}
+
+.modal-content {
+    background-color: #34495E; 
+    margin: 8% auto; 
+    padding: 30px;
+    border: 5px solid #F39C12; 
+    width: 90%; 
+    max-width: 600px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 0 25px rgba(243, 156, 18, 0.7);
+}
+
+.modal-content h2 {
+    color: #F39C12;
+    text-shadow: 1px 1px #777;
+}
+
+/* Стиль для кнопки продолжить (отличается цветом) */
+#resume-button {
+    background-color: #3498DB;
+    border-color: #2980B9;
+    box-shadow: 0 6px #2980B9;
+}
+#resume-button:hover {
+    background-color: #2980B9;
+}
+#resume-button:active {
+    box-shadow: 0 0 #2980B9;
+}
+
+/* Стили магазина */
+.close-button {
+    color: #F39C12;
+    float: right;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.close-button:hover {
+    color: white;
+}
+
+.shop-item {
+    padding: 15px;
+    margin-top: 15px;
+    border: 2px solid #5D6D7E;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2C3E50; 
+}
+
+.buy-button {
+    padding: 8px 15px;
+    font-size: 16px;
+    background-color: #1ABC9C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 3px #16A085;
+    transition: all 0.1s;
+}
+.buy-button:active {
+    box-shadow: 0 0 #16A085;
+    transform: translateY(3px);
+}
+.buy-button:disabled {
+    background-color: #5D6D7E;
+    box-shadow: none;
+    cursor: not-allowed;
+}
